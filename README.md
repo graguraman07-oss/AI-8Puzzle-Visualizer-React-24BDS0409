@@ -78,23 +78,26 @@ The following image paths are placeholders. Save the screenshots you sent in a f
 
 ### 1. Home page
 
-![Home page](screenshots/01-home-page.png)
+<img width="1365" height="724" alt="Screenshot 2026-10-23 215042" src="https://github.com/user-attachments/assets/affe9340-b1c4-455d-924a-1b896509fbb1" />
 
 ### 2. Puzzle workspace and initial state
 
-![Puzzle workspace](screenshots/02-puzzle-workspace.png)
+<img width="1365" height="578" alt="Screenshot 2026-10-23 215113" src="https://github.com/user-attachments/assets/d495e19b-afed-4032-973d-cd6319e0b214" />
+<img width="1365" height="586" alt="Screenshot 2026-10-23 215134" src="https://github.com/user-attachments/assets/27a68aa1-4ae6-44f1-9eb7-4e817c243c11" />
+
 
 ### 3. Search process and UCS information
 
-![Search process and UCS information](screenshots/03-search-process.png)
+<img width="1365" height="649" alt="Screenshot 2026-10-23 215145" src="https://github.com/user-attachments/assets/e3f00731-b814-4a62-b81d-d146278485bf" />
+
 
 ### 4. Puzzle during execution
+<img width="1365" height="595" alt="Screenshot 2026-10-23 215718" src="https://github.com/user-attachments/assets/39a16e90-5559-4dc5-9f5f-8718b3c5b30e" />
 
-![Puzzle during execution](screenshots/04-puzzle-running.png)
 
 ### 5. Search lists and solution summary
 
-![Search lists and solution summary](screenshots/05-solution-summary.png)
+<img width="1364" height="595" alt="Screenshot 2026-10-23 215745" src="https://github.com/user-attachments/assets/37100b8a-434e-47ff-9623-ce3850e49724" />
 
 ## Run Locally
 

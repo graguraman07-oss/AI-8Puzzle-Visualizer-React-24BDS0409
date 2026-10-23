@@ -5,6 +5,8 @@ An interactive 8-Puzzle application that demonstrates **Uniform Cost Search (UCS
 ## Live Website
 
 **[Open the 8-Puzzle Solver](https://graguraman07-oss.github.io/AI-8Puzzle-Visualizer-React-24BDS0409/)**
+## Video
+**[Open the 8-Puzzle Solver](https://drive.google.com/file/d/1bwk1g9Hq_AOwv4DZI3KbClY3feR7cNiE/view?usp=sharing)**
 
 ## Student Details
 

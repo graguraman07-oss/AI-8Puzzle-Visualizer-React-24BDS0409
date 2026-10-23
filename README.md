@@ -1,82 +1,156 @@
-# Interactive 8-Puzzle Solver
+# Interactive 8-Puzzle Problem Solver
 
-## Project Description
-A browser-based 8-Puzzle application. Users can enter an initial state and a goal state, generate a random solvable puzzle, and inspect how Uniform Cost Search (UCS) explores states to find a minimum-cost solution.
+An interactive 8-Puzzle application that demonstrates **Uniform Cost Search (UCS)**. Configure the initial and goal states, generate a random solvable puzzle, run the search, and inspect the solution path and search statistics.
 
-## Technologies Used
-- React
-- JavaScript (ES6+)
-- Vite
-- CSS
-- Lucide React icons
+## Live Website
 
-## Search Algorithms Implemented
-- **Uniform Cost Search (UCS) only.**
-- No other search algorithms are implemented or offered in the interface.
-
-## Heuristics Used
-- **None.** UCS orders states by accumulated path cost `g(n)` and does not use a heuristic function.
-
-## Screenshots
-Screenshots will be added after the application is run and the final interface screenshots are provided.
-
-Suggested screenshots:
-- Homepage
-- Puzzle input and solver workspace
-- Search-process visualization
-- Completed solution and Solution Summary
-
-## GitHub Pages URL
-Add the published URL here after deployment:
-
-`https://YOUR-USERNAME.github.io/AI-8Puzzle-Visualizer-React-24BDS0409/`
-
-Replace `YOUR-USERNAME` with the GitHub username used to publish the repository. If the repository name changes, update the `base` path in `vite.config.js`.
+**[Open the 8-Puzzle Solver](https://graguraman07-oss.github.io/AI-8Puzzle-Visualizer-React-24BDS0409/)**
 
 ## Student Details
-Student information is displayed on the application homepage.
 
-## References
-- React documentation: https://react.dev/
-- Vite documentation: https://vite.dev/
-- Course-provided 8-Puzzle assignment specification.
+| Field | Details |
+|---|---|
+| Course | Artificial Intelligence |
+| Assignment Title | Interactive 8-Puzzle Problem Solver |
+| Student Name | Raguraman Govindasamy |
+| Registration Number | 24BDS0409 |
 
-## How to Run the Project
+## Project Description
 
-### Requirements
-Install a current LTS version of Node.js, which includes npm.
+The 8-Puzzle consists of eight numbered tiles and one blank space arranged on a 3 × 3 board. The goal is to transform an initial arrangement into a specified goal arrangement by sliding a neighboring tile into the blank space.
 
-### Run locally
-1. Extract the ZIP file.
-2. Open a terminal in the extracted project folder.
-3. Install dependencies:
+This application visualizes how Uniform Cost Search explores puzzle states. Each legal move has a cost of 1, so the path cost is equal to the number of moves. UCS expands the frontier state with the lowest accumulated path cost and can find an optimal solution when implemented with correct path-cost ordering and state handling.
 
-   ```bash
-   npm install
-   ```
+## Features
 
-4. Start the development server:
+- Enter an initial state and a goal state.
+- Load the provided example puzzle.
+- Generate a random solvable puzzle.
+- View the current puzzle state and highlighted tile changes.
+- Run Uniform Cost Search and inspect the resulting solution path.
+- Step through the search and control playback using Run, Pause, Resume, Next Step, Previous Step, and Reset.
+- Adjust the playback speed.
+- Inspect the node being expanded, parent node, frontier (open list), and explored (closed list).
+- View statistics such as nodes generated, nodes expanded, search depth, maximum search depth, execution time, path cost, and approximate memory usage.
+- Review a dedicated solution summary after the search finishes.
 
-   ```bash
-   npm run dev
-   ```
+## Technology Stack
 
-5. Open the local URL printed by Vite in your browser.
+- **React** — Component-based user interface.
+- **JavaScript** — Application logic and Uniform Cost Search implementation.
+- **Vite** — Development server and production build tool.
+- **CSS** — Layout, styling, and visual feedback.
+- **Git and GitHub** — Version control and source hosting.
+- **GitHub Actions and GitHub Pages** — Automated deployment and hosting.
 
-### Create a production build
-Run:
+## Algorithm: Uniform Cost Search (UCS)
+
+Uniform Cost Search is an uninformed search algorithm that expands the state with the lowest accumulated path cost, `g(n)`.
+
+### How it works
+
+1. Add the initial state to the frontier with path cost 0.
+2. Select the frontier state with the lowest path cost.
+3. Check whether that state matches the goal state.
+4. If it is not the goal, generate valid successor states by moving an adjacent tile into the blank space.
+5. Track parent states and path costs, handling repeated states so that cheaper paths are retained.
+6. Continue until the goal is found or the frontier becomes empty.
+7. Reconstruct the solution path from the recorded parent states.
+
+### Cost function
+
+Every legal tile move costs 1:
+
+`g(n) = number of moves from the initial state`
+
+The frontier is ordered by accumulated path cost. UCS does not use a heuristic function.
+
+### Properties
+
+- **Completeness:** Complete for a finite state space when step costs are positive and bounded away from zero.
+- **Optimality:** Finds a minimum-cost solution when implemented with correct path-cost ordering and state handling.
+- **Time complexity:** Exponential in the general case. A common bound is `O(b^(1 + floor(C*/epsilon)))`, where `b` is the branching factor, `C*` is the optimal solution cost, and `epsilon` is the minimum positive step cost.
+- **Space complexity:** Exponential in the worst case because frontier and explored states must be stored.
+
+## Screenshots
+
+The following image paths are placeholders. Save the screenshots you sent in a folder named `screenshots` in the project root, using the filenames below, and the images will display on GitHub.
+
+### 1. Home page
+
+![Home page](screenshots/01-home-page.png)
+
+### 2. Puzzle workspace and initial state
+
+![Puzzle workspace](screenshots/02-puzzle-workspace.png)
+
+### 3. Search process and UCS information
+
+![Search process and UCS information](screenshots/03-search-process.png)
+
+### 4. Puzzle during execution
+
+![Puzzle during execution](screenshots/04-puzzle-running.png)
+
+### 5. Search lists and solution summary
+
+![Search lists and solution summary](screenshots/05-solution-summary.png)
+
+## Run Locally
+
+### Prerequisites
+
+Install [Node.js](https://nodejs.org/) and Git.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/graguraman07-oss/AI-8Puzzle-Visualizer-React-24BDS0409.git
+```
+
+### 2. Enter the project folder
+
+```bash
+cd AI-8Puzzle-Visualizer-React-24BDS0409
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+Open the local URL printed in the terminal (Vite commonly uses `http://localhost:5173/`).
+
+### 5. Create a production build
 
 ```bash
 npm run build
 ```
 
-To preview the production build locally:
+Vite writes the production files to the `dist` directory.
 
-```bash
-npm run preview
-```
+## Deployment
 
-## Algorithm Overview
-Uniform Cost Search uses a priority queue and expands the frontier state with the lowest accumulated path cost first. Each legal tile move in this application costs 1, so the solution path cost equals the number of moves. UCS records parent states to reconstruct the solution path and tracks search statistics such as generated nodes, expanded nodes, execution time, and approximate memory use.
+The website is hosted on GitHub Pages. GitHub Actions builds the Vite application and deploys the generated site.
 
-The displayed memory value is an estimate rather than a direct measurement of browser heap usage. Performance measurements may vary by device and browser.
+**Live URL:** https://graguraman07-oss.github.io/AI-8Puzzle-Visualizer-React-24BDS0409/
+
+## References
+
+1. Russell, Stuart J., and Peter Norvig. *Artificial Intelligence: A Modern Approach*. Pearson.
+2. [React documentation](https://react.dev/)
+3. [Vite documentation](https://vite.dev/guide/)
+4. [GitHub Pages documentation](https://docs.github.com/en/pages)
+5. [GitHub Actions documentation](https://docs.github.com/en/actions)
+
+---
+
+**Student:** Raguraman Govindasamy  
+**Registration Number:** 24BDS0409
